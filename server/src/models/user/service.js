@@ -22,3 +22,7 @@ exports.deleteUser = async (query, callback) => {
 exports.updateUser = async (query, user, callback) => {
   User.updateOne(query, user, callback);
 };
+
+// exports.getUserById = async (id) => {
+//   let response = await User.findById();
+// };

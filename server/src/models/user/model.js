@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const userSchema = new Schema(
   {
+    // _id: { type: String },
     name: {
       type: String,
       required: true,
@@ -35,9 +36,21 @@ const userSchema = new Schema(
       type: Number, // Higher the number more previleges 0- Normal, 1 - Educator
       default: 0
     },
-    purchases: {
-      type: Array,
-      default: []
+    finance_rating: {
+      type: Number,
+      default: 0
+    },
+    question_attempted: {
+      type: Number,
+      default: 0
+    },
+    question_correct: {
+      type: Number,
+      default: 0
+    },
+    quiz_attempted: {
+      type: Number,
+      default: 0
     }
   },
   { timestamps: true }

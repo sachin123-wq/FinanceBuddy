@@ -51,7 +51,7 @@ exports.signup = (req, res) => {
   const user = req.body;
   createUser(user, (err, user) => {
     if (err) {
-      // console.log(err);
+      console.log(err);
       return res.status(400).json({
         err: 'Not able to save user in DB'
       });
@@ -65,7 +65,7 @@ exports.signup = (req, res) => {
 };
 
 // Proctected Routes
-exports.isSignIn = expressJwt({
+exports.isSignedIn = expressJwt({
   secret: process.env.SECRET || 'financeBuddy',
   algorithms: ['HS256'],
   userProperty: 'auth'
@@ -73,7 +73,7 @@ exports.isSignIn = expressJwt({
 
 // custom middlewares
 exports.isAuthenticated = (req, res, next) => {
-  let checker = req.profile && req.auth && req.profile._id === req.auth._id;
+  let checker = req.profile && req.auth && req.profile._id == req.auth._id;
   if (!checker) {
     return res.status(403).json({
       error: 'ACCESS DENIED'

@@ -6,6 +6,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 // DB Connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to Finance World!');
 });
 app.use('/api/auth', authRoutes);
+app.use('/api/user', userRoutes);
 // app.use('/api/post', postRoutes);
 
 // PORT
