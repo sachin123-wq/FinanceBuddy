@@ -1,4 +1,5 @@
 const Course = require('../models/course');
+const { uploadSingleFile, uploadFilesAndGetUrl } = require('../helpers/fileUpload');
 
 exports.getAllCourses = async (req, res) => {
   const courses = await Course.find({}).populate('author', 'name role');
@@ -27,7 +28,13 @@ exports.getCourse = async (req, res) => {
 };
 exports.createCourse = async (req, res) => {
   const { title, description, difficulty, domains } = req.body;
+  const imageFile = req.files.image;
 
+  if(!imageFile) {
+    return res.status(400).send({ 'error': 'File missing' })
+  }
+
+  const imageUrl = await uploadSingleFile(imageFile, 'jpg');
   const user = req.profile._id;
 
   const course = new Course({
@@ -35,6 +42,7 @@ exports.createCourse = async (req, res) => {
     description,
     difficulty,
     domains,
+    thumbnail: imageUrl,
     author: user
   });
 
@@ -86,8 +94,11 @@ exports.addVideoToCourse = async (req, res) => {
   const videoFile = req.files.video;
   const imageFile = req.files.image;
 
-  const videoUrl = 'a';
-  const imageUrl = 'a';
+  if (!videoFile || !imageFile) {
+    return res.status(400).send({ 'error': 'Files missing' })
+  }
+
+  const { videoUrl, imageUrl } = await uploadFilesAndGetUrl(videoFile, imageFile);
 
   const video = {
     title,

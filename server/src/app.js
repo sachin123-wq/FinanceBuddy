@@ -14,7 +14,8 @@ const quizResponseRoutes = require('./routes/quizResponse');
 const userRoutes = require('./routes/user');
 const postRoutes = require('./routes/post');
 const courseRoutes = require('./routes/course');
-
+const domainRoutes = require('./routes/domain');
+const learningPathRoutes = require('./routes/learningPath');
 // DB Connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -32,6 +33,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 app.use(fileUpload());
+app.use(express.urlencoded({ extended: false }));
 // My Routes
 app.get('/', (req, res) => {
   res.send('Welcome to Finance World!');
@@ -42,6 +44,8 @@ app.use('/api/post', postRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/quiz_response', quizResponseRoutes);
 app.use('/api/course', courseRoutes);
+app.use('/api/domain', domainRoutes);
+app.use('/api/learningPath', learningPathRoutes);
 
 // PORT
 const port = process.env.PORT || 8000;
