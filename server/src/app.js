@@ -9,6 +9,7 @@ const authRoutes = require('./routes/auth');
 const quizRoutes = require('./routes/quiz');
 const quizResponseRoutes = require('./routes/quizResponse');
 const userRoutes = require('./routes/user');
+const postRoutes = require('./routes/post');
 
 // DB Connection
 mongoose
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
 });
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
-// app.use('/api/post', postRoutes);
+app.use('/api/post', postRoutes);
 app.use('/api/quiz', quizRoutes);
 app.use('/api/quiz_response', quizResponseRoutes);
 
