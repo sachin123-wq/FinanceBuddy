@@ -6,7 +6,10 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
+const quizRoutes = require('./routes/quiz');
+const quizResponseRoutes = require('./routes/quizResponse');
 const userRoutes = require('./routes/user');
+
 // DB Connection
 mongoose
   .connect(process.env.DATABASE, {
@@ -31,6 +34,8 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 // app.use('/api/post', postRoutes);
+app.use('/api/quiz', quizRoutes);
+app.use('/api/quiz_response', quizResponseRoutes);
 
 // PORT
 const port = process.env.PORT || 8000;
