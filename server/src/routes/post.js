@@ -4,7 +4,8 @@ const {
   getAllPosts,
   getPost,
   createPost,
-  updatePost
+  updatePost,
+  createPostComment
 } = require('../controllers/post');
 const { verifyToken, isSignedIn } = require('../controllers/auth');
 
@@ -14,5 +15,6 @@ router.get('/', getAllPosts);
 router.get('/:postId', getPost);
 router.post('/', verifyToken, createPost);
 router.put('/:postId', verifyToken, updatePost);
+router.post('/:postId/comment', verifyToken, createPostComment);
 
 module.exports = router;

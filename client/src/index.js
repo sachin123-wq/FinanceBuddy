@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import store from './store';
-import './main.css';
+import './main.scss';
 
 ReactDOM.render(
   <Routes store={store}/>, 
