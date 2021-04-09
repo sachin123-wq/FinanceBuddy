@@ -32,7 +32,7 @@ exports.getQuiz = async (req, res) => {
 // TODO: ONLY EDUCATOR CAN CREATE THE QUIZ
 exports.createQuiz = async (req, res) => {
     try {
-        const author = req.user._id;
+        const author = req.profile._id;
         const { title, questions } = req.body;
 
         const newQuiz = new Quiz({
@@ -52,7 +52,7 @@ exports.createQuiz = async (req, res) => {
 
 exports.createQuizResponse = async (req, res) => {
     try {
-        const userId = req.user._id;
+        const userId = req.profile._id;
         const { quiz: quizId, response } = req.body;
         if (!quizId || !response) res.status(400).send({ 'error': 'incorrect body quiz or response missing' });
 
@@ -84,7 +84,7 @@ exports.createQuizResponse = async (req, res) => {
 // GET QUIZ RESPONSE USING quizId and userId
 exports.getQuizResponse = async (req, res) => {
     try {
-        const userId = req.user._id;
+        const userId = req.profile._id;
         const { quiz: quizId } = req.query;
 
         const quizResponse = await QuizResponse.findOne({ user: userId, quiz: quizId })
@@ -125,7 +125,7 @@ const updateUserProfile = async (quizId, userId, score) => {
         const { questions } = await Quiz.findById(quizId);
         const user = await User.findById(userId);
 
-        user.finance_rating += score;
+        user.finance_rating.push(score);
         user.question_attempted += questions.length;
         user.question_correct += score;
         user.quiz_attempted += 1;

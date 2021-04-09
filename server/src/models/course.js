@@ -43,7 +43,10 @@ const courseSchema = new Schema(
       type: Number,
       default: 0
     },
-    domains: String,
+    domains: {
+      type: Schema.Types.ObjectId,
+      ref: 'Domain'
+    },
     thumbnail: String
   },
   { timestamps: true }

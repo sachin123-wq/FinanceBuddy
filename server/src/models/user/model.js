@@ -38,8 +38,8 @@ const userSchema = new Schema(
       default: 0
     },
     finance_rating: {
-      type: Number,
-      default: 0
+      type: Array,
+      default: [0]
     },
     question_attempted: {
       type: Number,
