@@ -1,6 +1,7 @@
 const { createUser, getOneUserByQuery } = require('../models/user/service');
 var jwt = require('jsonwebtoken');
 var expressJwt = require('express-jwt');
+const User = require('../models/user/model');
 
 exports.signout = (req, res) => {
   res.clearCookie('token');
@@ -89,4 +90,30 @@ exports.isEducator = (req, res, next) => {
     });
   }
   next();
+};
+
+// temporary middleware function
+exports.verifyToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
+
+  if (!token) return res.sendStatus(401);
+
+  jwt.verify(token, process.env.SECRET, (err, user) => {
+    // console.log('JWT TOKEN ERROR', err);
+
+    if (err) return res.sendStatus(403);
+
+    req.auth = user;
+    const id = user._id;
+    User.findById(id).exec((err, user) => {
+      if (err || !user) {
+        return res.status(400).json({
+          error: 'No User was found in DB'
+        });
+      }
+      req.profile = user;
+      next();
+    });
+  });
 };

@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 // ROUTES 
+import Header from '../components/header';
 import LandingPage from '../components/landing-page';
 import DemoPage from '../components/blog-posts';
 
@@ -12,6 +13,7 @@ export default class Routes extends Component {
       <div>
         <Provider store={this.props.store}>
           <BrowserRouter>
+            <Header />
             <div className="page-content">
               <Switch>
                 <Route path="/" component={LandingPage} exact />

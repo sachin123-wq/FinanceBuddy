@@ -1,0 +1,45 @@
+@import "../../colors.scss";
+
+.btn {
+    color: white;
+    opacity: 0.95;
+    font-weight: 500;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    border: none;
+    padding: 8px 20px;
+    letter-spacing: 0.075em;
+    cursor: pointer;
+    width: fit-content;
+    transition: all ease 0.3s;
+    &:hover {
+        opacity: 1;
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.151);
+    }
+    &:active {
+        box-shadow: none;
+    }
+}
+
+.primary-btn {
+    color: white;
+    background-color: $dark-blue1;
+    // border: 1px solid $dark-blue1;
+    
+    &:hover {
+        color: white;
+        background-color: $light-blue1;
+        // border: 1px solid $light-blue1;
+    }
+}
+
+.outline-btn {
+    color: $dark-blue1;
+    background-color: white;
+    border: 1px solid $dark-blue1;
+    
+    &:hover {
+        color: $light-blue1;
+        border: 1px solid $light-blue1;
+    }
+}

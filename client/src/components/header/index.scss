@@ -1,0 +1,203 @@
+@import "../../colors.scss";
+
+@media only screen  and (min-width : 320px) {
+    .navbar-container {
+        font-weight: 400;
+        background-color: white;
+        color: #656565 !important;
+        box-shadow: 5px 5px 15px #f3f2f2;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        
+        .active-link {
+            .link-title {
+                color: black !important;
+            }
+        }
+        .active-dropdown {
+            span {
+                color: black !important;
+            }
+        }
+        
+        .premimum-btn {
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0.075em;
+            background: #FBB13C;
+            border-radius: 30px;
+            color: white;
+            margin-right: 8px;
+        }
+        .navbar-brand {
+            margin-right: 0;
+        }
+        .navbar {
+            background:#FFFFFF !important;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #656565 !important;
+            display: flex;
+            justify-content: center;
+            align-content: flex-end;
+            width: fit-content;
+            
+            .link-title {
+                margin-top: 3px;
+            }
+        }
+        
+        .logo {
+            vertical-align: middle;
+            padding: 5px 12px 0 10px;
+            font-family: 'Cookie', sans-serif;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            font-size: 40px;
+            line-height: 45px;
+            background: -webkit-linear-gradient(-45deg, $dark-blue1,  $light-blue1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .links-box {
+            position: absolute;
+            right: 200px;
+            top: 33%;
+            display: inline-block;
+        }
+        .link {
+            cursor: pointer;
+        }
+        .header-btn {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 8px 20px;
+            margin: 0 10px;
+            background: linear-gradient(45deg, $light-blue1, $dark-blue1);
+        }
+        .join-us-btn {
+            color: $dark-blue1;
+            background-color: white;
+            border: 1px solid $dark-blue1;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            width: 220px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 10px;
+            z-index: 1;
+            right: 0;
+            
+            .domain-name-link {
+                font-weight: normal;
+                color: #656565;
+                font-size: 14px;
+                text-decoration: none;
+                display: block;
+            }
+        }
+        
+        .dropdown-content a {
+            color: #656565;
+            padding: 5px 8px;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {display: block;}
+        
+        .dropdown-content a:hover {
+            color: black;
+        }
+        
+        .navbar-toggler-icon {
+            background: none !important;
+            color: #656565 !important;
+            padding-top: 5px;
+        }
+        
+        img {
+            margin: 0 5px;
+        }
+        
+        .domain-nav {
+            cursor: pointer;
+            margin: 0 15px 0 10px;
+            span {
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        
+        .nav-btns {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+
+@media only screen and (min-width : 768px) and (max-width : 1200px) {
+    .navbar-container {
+        .logo {
+            width: 180px;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            font-size: 13px;
+        }
+        .domain-nav {
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width : 320px) and (max-width : 768px) {
+    .navbar-container {
+        .logo {
+            width: 160px;
+        }
+        .links-box {
+            font-size: 16px;
+            right: 20px;
+        }
+        
+        .navbar-collapse {
+            margin-top: 10px;
+        }
+        
+        .nav-btns {
+            margin-top: 10px;
+        }
+        
+        .domain-nav {
+            margin: 10px 0;
+        }
+        
+        .header-btn {
+            font-size: 12px;
+            padding: 6px 12px;
+            margin: 0;
+        }
+        .dropdown-content {
+            width: 180px;
+        }
+        .domain-dropdown-content {
+            position: absolute;
+            left: 10px;
+        }
+    }
+}
