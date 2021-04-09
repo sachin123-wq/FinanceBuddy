@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { ObjectId } = Schema;
 const crypto = require('crypto');
 const { v4: uuidv4 } = require('uuid');
 
@@ -51,7 +52,8 @@ const userSchema = new Schema(
     quiz_attempted: {
       type: Number,
       default: 0
-    }
+    },
+    bookmarks: [{ type: ObjectId, unique: true, ref: 'Post' }]
   },
   { timestamps: true }
 );
