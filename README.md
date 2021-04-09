@@ -1,4 +1,4 @@
-# Finace-Buddy  - A new way to learn Finance
+# Finance-Buddy  - A new way to learn Finance
 ### By Team Name 203
 This webapp is Best-fit for learners who do not have any experience in field of finance.
 ## **The sooner you start, the sooner you will experience the benefits.**
