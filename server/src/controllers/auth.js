@@ -90,3 +90,20 @@ exports.isEducator = (req, res, next) => {
   }
   next();
 };
+
+
+// temporary middleware function 
+exports.verifyToken = (req, res, next) => {
+  const token = req.header('auth-token');
+  if (!token) res.status(401).send('Access Denied, Not auth-token provided')
+
+  try {
+    const authenticated_user = jwt.verify(token, process.env.SECRET)
+    req.user = authenticated_user;
+    // go to whatever the main task/function was 
+    next();
+  }
+  catch (err) {
+    res.status(400).send('Invalid Token');
+  }
+}
