@@ -62,13 +62,13 @@ const AppHeader = () => {
                         globalState.showExtraNavOptns
                         && (
                             <div className="navbar-nav">
-                                <NavLink to="/feed" activeClassName="active-link">
+                                <NavLink to="/posts" activeClassName="active-link">
                                     <div className="nav-item nav-link" data-toggle="collapse" data-target=".navbar-collapse.show">
                                         <div><img src={navFeed} alt="nav_feed" /></div>
                                         <div className="link-title">Posts</div>
                                     </div>
                                 </NavLink>
-                                <NavLink to={`/domain`} activeClassName="active-link">
+                                <NavLink to={`/course`} activeClassName="active-link">
                                     <div className="nav-item nav-link" data-toggle="collapse" data-target=".navbar-collapse.show">
                                         <div><img src={navBook} alt="nav_book" /></div>
                                         <div className="link-title">Courses</div>
@@ -96,7 +96,7 @@ const AppHeader = () => {
                                 ? <div className="dropdown">
                                     <img className="profile-icon" src={ProfileIcon} />
                                     <div className="dropdown-content profile-dropdown-content">
-                                        <NavLink to="/user/profile" activeClassName="active-dropdown">
+                                        <NavLink to="/user_profile" activeClassName="active-dropdown">
                                             <span data-toggle="collapse" data-target=".navbar-collapse.show">Profile</span>
                                         </NavLink>
                                         <Link to="#" onClick={handleLogOut}>

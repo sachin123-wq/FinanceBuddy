@@ -1,0 +1,58 @@
+@import '../../../colors.scss';
+
+.post-detail-container {
+    padding: 40px;
+    height: fit-content;
+
+    .post-detail {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+        margin: auto;
+        width: 900px;
+        padding: 20px;
+
+        .title {
+            font-size: 28px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: $dark-blue1;
+        }
+
+        .image-detail-container {
+            margin: auto;
+            width: 70%;
+            margin-bottom: 20px;
+            
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+
+        .content {
+            font-size: 18px;
+            padding: 0 5px;
+            color: grey;
+        }
+
+        .section-1 {
+            margin-top: 25px;
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            padding: 0 5px;
+            color: $dark-blue1;
+
+            stats {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                div {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}

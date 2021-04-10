@@ -1,0 +1,103 @@
+@import '../../colors.scss';
+
+.user-profile-container {
+    padding: 40px;
+    
+    .user-profile {
+        margin: auto;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        
+        .section-1 {
+            width: 500px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            margin: auto;
+            margin-bottom: 20px;
+            
+            .name {
+                font-weight: bold;
+                font-size: 22px;
+                line-height: 18px;
+                margin: 0;
+                padding: 0;
+                color: $dark-blue1;
+            }
+            .email {
+                font-size: 18px;
+                color: $light-blue1;
+            }
+        }
+        
+        .section-2 {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 30px;
+
+            .rating-chart {
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                margin-right: 15px;
+            }
+            .percentage-chart {
+                min-width: 200px;
+                min-height: 200px;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .percent {
+                    margin-top: 5px;
+                    font-size: 12px;
+                    color: grey;
+                    text-align: center;
+                }
+
+                .quiz-stats {
+                    margin-top: 20px;
+                    color: $dark-blue1;
+
+                    span {
+                        color: $light-blue1;
+                    }
+                }
+            }
+        }
+
+        .bookmarks-container {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            width: 950px;
+
+            .title {
+                font-weight: bold;
+                color: $dark-blue1;
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            .msg {
+                color: $light-blue1;
+            }
+
+            .post {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -8,16 +8,15 @@ const {
   updateUser,
   createBookmark
 } = require('../controllers/user');
-const { isSignedIn, isAuthenticated } = require('../controllers/auth');
+const { verifyToken } = require('../controllers/auth');
 
 router.param('userId', getUserById);
 router.get('/', getAllUsers);
-router.get('/:userId', isSignedIn, isAuthenticated, getUser);
-router.put('/:userId', isSignedIn, isAuthenticated, updateUser);
+router.get('/:userId', verifyToken, getUser);
+router.put('/:userId', verifyToken, updateUser);
 router.post(
   '/:userId/bookmark/:postId',
-  isSignedIn,
-  isAuthenticated,
+  verifyToken,
   createBookmark
 );
 

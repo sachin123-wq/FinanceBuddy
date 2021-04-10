@@ -1,8 +1,15 @@
 const Course = require('../models/course');
-const { uploadSingleFile, uploadFilesAndGetUrl } = require('../helpers/fileUpload');
+const {
+  uploadSingleFile,
+  uploadFilesAndGetUrl
+} = require('../helpers/fileUpload');
 
 exports.getAllCourses = async (req, res) => {
-  const courses = await Course.find({}).populate('author', 'name role');
+  let query = {};
+  if (req.query && req.query.domain) {
+    query.domain = req.query.domain;
+  }
+  const courses = await Course.find(query).populate('author', 'name role');
   if (!courses) {
     return res.status(400).json({
       error: 'No course found'
@@ -30,8 +37,8 @@ exports.createCourse = async (req, res) => {
   const { title, description, difficulty, domains } = req.body;
   const imageFile = req.files.image;
 
-  if(!imageFile) {
-    return res.status(400).send({ 'error': 'File missing' })
+  if (!imageFile) {
+    return res.status(400).send({ error: 'File missing' });
   }
 
   const imageUrl = await uploadSingleFile(imageFile, 'jpg');
@@ -47,6 +54,7 @@ exports.createCourse = async (req, res) => {
   });
 
   course.save((err, course) => {
+    console.log(err);
     if (err) {
       return res.status(400).json({
         error: 'Error while saving to DB'
@@ -95,10 +103,13 @@ exports.addVideoToCourse = async (req, res) => {
   const imageFile = req.files.image;
 
   if (!videoFile || !imageFile) {
-    return res.status(400).send({ 'error': 'Files missing' })
+    return res.status(400).send({ error: 'Files missing' });
   }
 
-  const { videoUrl, imageUrl } = await uploadFilesAndGetUrl(videoFile, imageFile);
+  const { videoUrl, imageUrl } = await uploadFilesAndGetUrl(
+    videoFile,
+    imageFile
+  );
 
   const video = {
     title,
