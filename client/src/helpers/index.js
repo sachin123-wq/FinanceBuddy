@@ -1,4 +1,6 @@
-
+import { getLocalStorageItem, 
+    setLocalStorageItem, removeLocalStorageItem 
+} from './localStorage'
 
 export const checkLoggedIn = () => {
     return getLocalStorageItem('access');
@@ -13,7 +15,7 @@ export const validateEmail = (email) => {
 // GET USER ID
 export const getUserId = () => {
     const accTok = getLocalStorageItem('access');
-    return JSON.parse(atob(accTok.split('.')[1])).user._id;
+    return JSON.parse(atob(accTok.split('.')[1]))._id;
 }
 
 export const capitalizeFirstLetter = (string) => {

@@ -32,3 +32,6 @@ export const SET_LOGIN_PASSWORD = 'SET_LOGIN_PASSWORD';
 export const SET_LOGIN_VALID = 'SET_LOGIN_VALID';
 export const CLEAR_LOGIN_FORM = 'CLEAR_LOGIN_FORM';
 export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
+
+// userReducer TYPES 
+export const GET_USER_PROFILE = 'GET_USER_PROFILE';
