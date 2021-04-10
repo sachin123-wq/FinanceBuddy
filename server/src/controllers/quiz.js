@@ -125,7 +125,9 @@ const updateUserProfile = async (quizId, userId, score) => {
         const { questions } = await Quiz.findById(quizId);
         const user = await User.findById(userId);
 
-        user.finance_rating.push(score);
+        const size = user.finance_rating.length;
+        const oldRating = user.finance_rating[size - 1];
+        user.finance_rating.push(oldRating + score);
         user.question_attempted += questions.length;
         user.question_correct += score;
         user.quiz_attempted += 1;
