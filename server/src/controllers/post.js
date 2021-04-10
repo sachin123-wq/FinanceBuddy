@@ -2,7 +2,11 @@ const { uploadSingleFile } = require('../helpers/fileUpload');
 const { Post } = require('../models/post/model');
 
 exports.getAllPosts = async (req, res) => {
-  let posts = await Post.find({});
+  let query = {};
+  if (req.query && req.query.domain) {
+    query.domain = req.query.domain;
+  }
+  let posts = await Post.find(query);
   res.send({ posts });
 };
 

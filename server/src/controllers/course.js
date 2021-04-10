@@ -5,7 +5,11 @@ const {
 } = require('../helpers/fileUpload');
 
 exports.getAllCourses = async (req, res) => {
-  const courses = await Course.find({}).populate('author', 'name role');
+  let query = {};
+  if (req.query && req.query.domain) {
+    query.domain = req.query.domain;
+  }
+  const courses = await Course.find(query).populate('author', 'name role');
   if (!courses) {
     return res.status(400).json({
       error: 'No course found'
