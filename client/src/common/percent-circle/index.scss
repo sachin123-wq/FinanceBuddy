@@ -1,0 +1,30 @@
+@import "../../colors.scss";
+
+.svg-container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.circle-background,
+.circle-progress {
+    fill: none;
+}
+
+.circle-background {
+    stroke: #ddd;
+}
+
+.circle-progress {
+    stroke: $light-blue1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.circle-text {
+    font-size: 30px;
+    font-weight: bold;
+    fill: $light-blue1;
+}
