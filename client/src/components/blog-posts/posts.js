@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './post.css';
 import SinglePost from './singlePost';
 const Posts = (props) => {
@@ -7,11 +8,13 @@ const Posts = (props) => {
   const { posts } = data;
 
   return (
-    <>
+    <div className="post_container">
       {posts.map((post) => {
-        return <SinglePost post={post} />;
+        return <Link to={`/posts/${post._id}`} key={post._id}>
+          <SinglePost post={post} />
+        </Link>;
       })}
-    </>
+    </div>
   );
 };
 

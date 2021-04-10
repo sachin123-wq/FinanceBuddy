@@ -1,5 +1,6 @@
-import { getLocalStorageItem, 
-    setLocalStorageItem, removeLocalStorageItem 
+import {
+    getLocalStorageItem,
+    setLocalStorageItem, removeLocalStorageItem
 } from './localStorage'
 
 export const checkLoggedIn = () => {
@@ -21,3 +22,8 @@ export const getUserId = () => {
 export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+export const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+};

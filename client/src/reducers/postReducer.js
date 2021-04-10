@@ -1,8 +1,10 @@
-import { GET_ALL_POSTS } from "../actions/types";
+import { GET_ALL_POSTS, GET_POST_DETAIL } from "../actions/types";
 
 const initState = {
     posts: [],
     postLoading: true,
+    postDetail: {},
+    postDetailLoading: true
 }
 
 const postReducer = (state = initState, action) => {
@@ -12,6 +14,12 @@ const postReducer = (state = initState, action) => {
                 ...state,
                 posts: action.payload,
                 postLoading: false
+            }
+        case GET_POST_DETAIL:
+            return {
+                ...state,
+                postDetail: action.payload,
+                postDetailLoading: false
             }
         default:
             return state;
