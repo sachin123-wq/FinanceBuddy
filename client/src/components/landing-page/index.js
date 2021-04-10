@@ -4,17 +4,8 @@ import { Button, OutlineButton } from '../../common/button';
 import Hero from '../../images/calc.png';
 import './index.scss';
 
-// TEMP
-import Api from '../../api/authAPI';
 
 const LandingPage = () => {
-
-    // useEffect(() => {
-    //     (async () => {
-    //         const res = await Api.signIn({email: "bean@gmail.com", password: "12345"});
-    //         console.log(res)
-    //     })()
-    // }, [])
 
     return (
         <div className="landing-wrapper">

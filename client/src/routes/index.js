@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import Header from '../components/header';
 import LandingPage from '../components/landing-page';
 import DemoPage from '../components/blog-posts';
+import UserProfile from '../components/profile';
 
 export default class Routes extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class Routes extends Component {
               <Switch>
                 <Route path="/" component={LandingPage} exact />
                 <Route path="/posts" component={DemoPage} exact />
+                <Route path="/user_profile" component={UserProfile} exact />
               </Switch>
             </div>
           </BrowserRouter>

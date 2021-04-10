@@ -5,6 +5,7 @@ import signupReducer from "./signupReducer";
 import authReducer from "./authReducer";
 import signupFormReducer from './signupFormReducer';
 import loginFormReducer from './loginFormReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
     global: globalReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     signupForm: signupFormReducer,
     loginForm: loginFormReducer,
     auth: authReducer,
+    user: userReducer
 })
