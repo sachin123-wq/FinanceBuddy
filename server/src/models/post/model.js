@@ -39,17 +39,14 @@ const postSchema = new Schema(
       required: true
     },
     content: {
-      type: Array,
+      type: String,
       required: true
     },
     likes: {
       type: Number,
       default: 0
     },
-    domains: {
-      type: [DomainSchema],
-      default: []
-    },
+    domain: { type: ObjectId, ref: 'Domain' },
     comments: {
       type: [commentSchema],
       default: []
@@ -61,7 +58,12 @@ const postSchema = new Schema(
     user: {
       type: ObjectId,
       ref: 'User'
-    }
+    },
+    quiz: {
+      type: ObjectId,
+      ref: 'Quiz'
+    },
+    image: String
   },
   { timestamps: true }
 );
