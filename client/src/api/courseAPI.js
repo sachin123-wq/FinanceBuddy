@@ -13,8 +13,19 @@ export default class Api {
         }
     }
 
-    static async getCourseDetail(courdeId) {
-        const uri = `${__API_BASE_ADDRESS__}/api/course/${courdeId}`;
+    static async getCourseDetail(courseId) {
+        const uri = `${__API_BASE_ADDRESS__}/api/course/${courseId}`;
+        try {
+            const res = await get(uri);
+            return res.data;
+        }
+        catch (e) {
+            return e.response.data
+        }
+    }
+
+    static async getAllCourses() {
+        const uri = `${__API_BASE_ADDRESS__}/api/course/`;
         try {
             const res = await get(uri);
             return res.data;

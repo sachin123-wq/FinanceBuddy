@@ -1,0 +1,47 @@
+*margin
+{
+    top: auto;
+}
+.user
+{
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+}
+.user_name
+{
+    flex: 0.7;
+}
+
+.user__scores
+{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10%;
+}
+
+.question_correct
+{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.question_attempted
+{
+    padding-left:  10%;
+    padding-right: 10%;
+}
+
+.user_accuracy
+{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+*Plot
+{
+    display: flex;
+    align-items: center;
+}
+
+

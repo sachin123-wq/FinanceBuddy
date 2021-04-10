@@ -1,7 +1,7 @@
 
 // global
 export const TOGGLE_EXTRA_NAV_OPTIONS = 'TOGGLE_EXTRA_NAV_OPTIONS'
-export const SAVING = 'SAVING' 
+export const SAVING = 'SAVING'
 
 
 // authReducer TYPES 
@@ -27,7 +27,7 @@ export const CLEAR_SIGNUP_FORM = 'CLEAR_SIGNUP_FORM';
 export const SET_SUCCESS_MSG = 'SET_SUCCESS_MSG';
 
 // loginFormReducer TYPES 
-export const SET_LOGIN_EMAIL = 'SET_LOGIN_EMAIL'; 
+export const SET_LOGIN_EMAIL = 'SET_LOGIN_EMAIL';
 export const SET_LOGIN_PASSWORD = 'SET_LOGIN_PASSWORD';
 export const SET_LOGIN_VALID = 'SET_LOGIN_VALID';
 export const CLEAR_LOGIN_FORM = 'CLEAR_LOGIN_FORM';
@@ -39,3 +39,17 @@ export const GET_USER_PROFILE = 'GET_USER_PROFILE';
 
 // postReducer TYPES
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
+//courseReducer TYPES
+export const GET_ALL_COURSE_BY_DOMAIN = 'GET_ALL_COURSE_BY_DOMAIN'
+export const GET_ALL_COURSE = 'GET_ALL_COURSE'
+
+//domainReducer TYPES
+export const GET_ALL_DOMAIN = 'GET_ALL_DOMAIN'
+
+// quizReducer TYPES 
+export const GET_QUIZ_DETAILS = 'GET_QUIZ_DETAILS';
+export const GET_PREVIOUS_RESPONSE = 'GET_PREVIOUS_RESPONSE';
+export const QUIZ_LOADING = 'QUIZ_LOADING';
+export const PREVIOUS_RESPONSE_LOADING = 'PREVIOUS_RESPONSE_LOADING';
+export const CLEAR_QUIZ_STATE = 'CLEAR_QUIZ_STATE';
+export const UPDATE_RESPONSE = 'UPDATE_RESPONSE';

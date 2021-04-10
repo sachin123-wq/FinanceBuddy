@@ -96,7 +96,7 @@ const AppHeader = () => {
                                 ? <div className="dropdown">
                                     <img className="profile-icon" src={ProfileIcon} />
                                     <div className="dropdown-content profile-dropdown-content">
-                                        <NavLink to="/user/profile" activeClassName="active-dropdown">
+                                        <NavLink to="/user_profile" activeClassName="active-dropdown">
                                             <span data-toggle="collapse" data-target=".navbar-collapse.show">Profile</span>
                                         </NavLink>
                                         <Link to="#" onClick={handleLogOut}>
