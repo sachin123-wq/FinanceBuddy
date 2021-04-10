@@ -35,3 +35,7 @@ export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 
 // userReducer TYPES 
 export const GET_USER_PROFILE = 'GET_USER_PROFILE';
+
+
+// postReducer TYPES
+export const GET_ALL_POSTS = "GET_ALL_POSTS";

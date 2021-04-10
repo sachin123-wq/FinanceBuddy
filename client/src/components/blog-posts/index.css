@@ -1,0 +1,14 @@
+.post__container {
+  background-color: red;
+  height: 250px;
+  width: 90%;
+  border-radius: 20px;
+  /* margin-top: 10px; */
+}
+
+.post__container img {
+  width: 30%;
+  height: 90%;
+  overflow: hidden;
+  object-fit: cover;
+}
