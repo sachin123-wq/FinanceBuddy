@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserProfile } from '../../actions/userActions';
 import Plot from 'react-plotly.js';
+import PercentCircle from '../../common/percent-circle';
 import './index.scss';
 
 const UserProfile = () => {
@@ -17,13 +18,10 @@ const UserProfile = () => {
     let YValuesFunction = [];
 
     useEffect(() => {
-
         getUserProfile(dispatch);
-
     }, []);
 
     useEffect(() => {
-
         function fetchcurve() {
             let YValuesFunction = userState.userProfile.finance_rating, quiz_count = userState.userProfile.quiz_attempted;
 
@@ -36,81 +34,77 @@ const UserProfile = () => {
                 XValues: XValuesFunction,
                 YValues: YValuesFunction
             });
-
         }
         fetchcurve();
-
     }, [userState]);
 
+    const correctPercentage = userState.userProfile.question_attempted > 0 ?
+        Math.round(userState.userProfile.question_correct * 100 / userState.userProfile.question_attempted) : 0;
 
     return (
-        <div className="main">
+        <div className="user-profile-container">
+            {
+                userState.profileLoading
+                    ? <div className="loading">Loading</div>
+                    : (
+                        <div className="user-profile">
+                            <div className="section-1">
+                                <p className="name">{userState.userProfile.name}</p>
+                                <p className="email">
+                                    {userState.userProfile.email} <span>{userState.userProfile.role === 1 ? "(Educator)" : ""}</span>
+                                </p>
+                            </div>
 
-            <div className="user">
-                <div className="user_name">
-                    {
-                        userState.profileLoading
-                            ? <div className="loading">Loading</div>
-                            : <div>{userState.userProfile.name}</div>
-                    }
-                </div>
+                            <div className="section-2">
+                                <div className="rating-chart">
+                                    <Plot
+                                        data={[
+                                            {
+                                                x: pointerToThis.XValues,
+                                                y: pointerToThis.YValues,
+                                                type: 'scatter',
+                                                mode: 'lines+markers',
+                                                marker: { color: '#5d62b5' },
+                                            },
+                                        ]}
+                                        layout={{ width: 720, height: 440, title: 'Finance Rating' }}
+                                    />
+                                </div>
+                                <div className="percentage-chart">
+                                    <PercentCircle percentage={correctPercentage} />
+                                    <div className="percent">Percentage of <br />questions correct</div>
 
-                <div className="quiz_attempted">
-                    {
-                        userState.profileLoading
-                            ? <div className="loading">Loading</div>
-                            : <div>{userState.userProfile.quiz_attempted}</div>
-                    }
-                </div>
+                                    <div className="quiz-stats">
+                                        Quiz Attended:
+                                        <span> {userState.userProfile.quiz_attempted}</span>
+                                    </div>
+                                </div>
+                            </div>
 
-            </div>
-
-
-
-            <div className="plot">
-                <Plot
-                    data={[
-                        {
-                            x: pointerToThis.XValues,
-                            y: pointerToThis.YValues,
-                            type: 'scatter',
-                            mode: 'lines+markers',
-                            marker: { color: 'blue' },
-                        },
-                    ]}
-                    layout={{ width: 720, height: 440, title: 'Finance_Plot' }}
-                />
-            </div>
-
-
-
-
-
-            <div className="user__scores">
-                <div className="question_correct">
-                    {
-                        userState.profileLoading
-                            ? <div className="loading">Loading</div>
-                            : <div>{userState.userProfile.question_correct}</div>
-                    }
-                </div>
-                <div className="question_attempted">
-                    {
-                        userState.profileLoading
-                            ? <div className="loading">Loading</div>
-                            : <div>{userState.userProfile.question_attempted}</div>
-                    }
-                </div>
-                <div className="user_accuracy">
-                    {
-                        userState.profileLoading
-                            ? <div className="loading">Loading</div>
-                            : <div>{userState.userProfile.question_correct * 100 / userState.userProfile.question_attempted}</div>
-                    }
-                </div>
-            </div>
-
-
+                            <div className="bookmarks-container">
+                                <div className="title">Bookmarks</div>
+                                <div>
+                                    {
+                                        userState.userProfile.bookmarks.length === 0
+                                            ? <div className="msg"> You have none </div>
+                                            : (
+                                                <div className="posts">
+                                                    {
+                                                        userState.userProfile.posts.map(post => (
+                                                            <div className="post" key={post.post._id}>
+                                                                <div>{post.post.title}</div>
+                                                                <div><i className="fa fa-thumbs-up"></i> {post.post.likes}</div>
+                                                            </div>
+                                                        ))
+                                                    }
+                                                </div>
+                                            )
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    )
+            }
         </div>
     )
 }
