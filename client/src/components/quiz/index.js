@@ -26,17 +26,17 @@ const Quiz = () => {
             }
         }
         const {score, error} = await submitQuizResponse(quizId, response, dispatch);
-        window.alert(score ? `You scored ${score} out of ${quizDetails.total_score}`: error);
+        window.alert(error ? error : `You scored ${score} out of ${quizDetails.total_score}`);
     }
 
     return (
-        <div>
+        <div className="quiz-container">
             {
                 quizState.quizLoading
                     ? <div className="loading">Loading</div>
                     : (
-                        <div>
-                            {quizState.quizDetails.title}
+                        <div className="quiz">
+                            <div className="title">{quizState.quizDetails.title}</div>
                             {
                                 quizState.quizDetails.questions.map(question => (
                                     <Question
@@ -45,10 +45,12 @@ const Quiz = () => {
                                     />
                                 ))
                             }
-                            <Button
-                                text="Submit"
-                                onClick={handleSubmit}
-                            />
+                            <div className="submit-btn-container">
+                                <Button
+                                    text="Submit"
+                                    onClick={handleSubmit}
+                                />
+                            </div>
                         </div>
                     )
             }

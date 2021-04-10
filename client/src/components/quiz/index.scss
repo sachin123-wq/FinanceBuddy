@@ -1,0 +1,27 @@
+
+.quiz-container {
+    padding: 30px 0;
+
+    .quiz {
+        margin: auto;
+        width: 768px;
+        padding: 20px;
+
+        .title {
+            font-size: 25px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .submit-btn-container {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .btn {
+                margin: auto;
+            }
+        }
+    }
+}

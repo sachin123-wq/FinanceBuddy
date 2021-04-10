@@ -14,22 +14,21 @@ const Question = ({ question }) => {
     }
 
     return (
-        <div>
-            <div>{question.description}</div>
-            <div>
+        <div className="question-container">
+            <div className="description">{question.description}</div>
+            <div className="options-container">
                 {
                     question.options.map(option => (
-                        <div key={option._id}>
-                            <div>
-                                <input
-                                    type="radio"
-                                    name={question._id}
-                                    value={option._id}
-                                    checked={quizState.response.get(question._id) === option._id}
-                                    onChange={handleChange}
-                                />
-                                <label>{option.text}</label>
-                            </div>
+                        <div className="option" 
+                            key={option._id}>
+                            <input
+                                type="radio"
+                                name={question._id}
+                                value={option._id}
+                                checked={quizState.response.get(question._id) === option._id}
+                                onChange={handleChange}
+                            />
+                            <label>{option.text}</label>
                         </div>
                     ))
                 }
