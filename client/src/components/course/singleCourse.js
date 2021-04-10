@@ -1,5 +1,10 @@
 import React from 'react'
 
+const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+};
+
 function SingleCourse(props) {
     const { course } = props;
     console.log(course);
@@ -27,7 +32,7 @@ function SingleCourse(props) {
                                         <li>
                                             <div className="info">
                                                 <p>Posted on:</p>
-                                                <strong>{course.createdAt}</strong>
+                                                <strong>{formatDate(course.createdAt)}</strong>
                                             </div>
                                         </li>
                                         <li>
