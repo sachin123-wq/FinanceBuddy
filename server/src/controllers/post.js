@@ -91,3 +91,21 @@ exports.createPostComment = (req, res) => {
     }
   );
 };
+
+exports.addQuizToPost = (req, res) => {
+  const { postId, quizId } = req.params;
+
+  Post.findByIdAndUpdate(
+    { _id: postId },
+    { $set: { quiz: quizId } },
+    { new: true, useFindAndModify: false },
+    (err, post) => {
+      if (err) {
+        return res.status(400).json({
+          error: 'Unable to update'
+        });
+      }
+      res.send(post);
+    }
+  );
+};
