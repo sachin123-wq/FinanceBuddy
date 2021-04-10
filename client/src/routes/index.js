@@ -7,6 +7,8 @@ import Header from '../components/header';
 import LandingPage from '../components/landing-page';
 import DemoPage from '../components/blog-posts';
 import UserProfile from '../components/profile';
+import Quiz from '../components/quiz';
+import PageNotFound from '../components/error/page-not-found';
 
 export default class Routes extends Component {
   render() {
@@ -20,6 +22,8 @@ export default class Routes extends Component {
                 <Route path="/" component={LandingPage} exact />
                 <Route path="/posts" component={DemoPage} exact />
                 <Route path="/user_profile" component={UserProfile} exact />
+                <Route path="/quiz/:quizId" component={Quiz} exact />
+                <Route component={PageNotFound} />
               </Switch>
             </div>
           </BrowserRouter>
