@@ -58,4 +58,13 @@ export default class Api {
         }
     }
 
+    static async getAllPosts() {
+        const uri = `${__API_BASE_ADDRESS__}/api/post`;
+        try {
+            const res = await get(uri);
+            return res.data;
+        } catch(e) {
+            return e.response.data;
+        }
+    }
 }

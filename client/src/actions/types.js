@@ -37,6 +37,8 @@ export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 export const GET_USER_PROFILE = 'GET_USER_PROFILE';
 
 
+// postReducer TYPES
+export const GET_ALL_POSTS = "GET_ALL_POSTS";
 //courseReducer TYPES
 export const GET_ALL_COURSE_BY_DOMAIN = 'GET_ALL_COURSE_BY_DOMAIN'
 export const GET_ALL_COURSE = 'GET_ALL_COURSE'
