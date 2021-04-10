@@ -1,3 +1,4 @@
+const { uploadSingleFile } = require('../helpers/fileUpload');
 const { Post } = require('../models/post/model');
 
 exports.getAllPosts = async (req, res) => {
@@ -18,14 +19,18 @@ exports.getPost = async (req, res) => {
 };
 
 exports.createPost = async (req, res) => {
-  const { title, content, domains = [], words_count = 0 } = req.body;
+  const { title, content, domain, words_count = 0 } = req.body;
+  const imageFile = req.files.image;
+
+  const imageUrl = await uploadSingleFile(imageFile, 'jpg');
 
   let post = new Post({
     title,
     content,
-    domains,
+    domain,
     words_count,
-    user: req.profile._id
+    user: req.profile._id,
+    imageUrl
   });
   const savedPost = await post.save();
 
