@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
+import { formatDate } from '../../helpers';
+import { Button } from '../../common/button';
 import './post.css';
 
-const formatDate = (dateString) => {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(dateString).toLocaleDateString(undefined, options);
-};
+
 const SinglePost = (props) => {
   console.log('🚀 ~ file: singlePost.js ~ line 4 ~ SinglePost ~ props', props);
   const { post } = props;
@@ -17,7 +16,7 @@ const SinglePost = (props) => {
             <div className="row">
               <div className="col-xs-12 col-sm-5 col-md-5 col-lg-4">
                 <div className="post-type post-img">
-                  <a href="#">
+                  <span href="#">
                     <img
                       src={
                         post.image ||
@@ -26,34 +25,30 @@ const SinglePost = (props) => {
                       className="img-responsive"
                       alt="image post"
                     />
-                  </a>
+                  </span>
                 </div>
                 <div className="author-info author-info-2">
                   <ul className="list-inline">
                     <li>
-                      <div className="info">
-                        <p>Posted on:</p>
-                        <strong>{formatDate(post.createdAt)}</strong>
+                      <div className="info" >
+                        <p style={{ color: "#5d62b5", fontWeight: "bold", padding: "8px 0 0 8px" }}
+                        >Posted on: <strong style={{ color: "#5d62b5" }}>{formatDate(post.createdAt)}</strong></p>
                       </div>
                     </li>
                     <li>
-                      <div className="info">
-                        <p>Comments:</p>
-                        <strong>{post.comments.length}</strong>
-                      </div>
                     </li>
                   </ul>
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+              <div className="text-container col-xs-12 col-sm-7 col-md-7 col-lg-8">
                 <div className="caption">
                   <h3 className="md-heading">
-                    <a href="#">{post.title}</a>
+                    <span style={{ color: '#5d62b5', fontWeight: "bold" }}>{post.title}</span>
                   </h3>
-                  <p>{post.content}</p>
-                  <a className="btn btn-default" href="#" role="button">
-                    Read More
-                  </a>
+                  <p style={{ color: 'grey' }}>{post.content}</p>
+                  <div className="read-more-btn">
+                    <Button text="Read More" />
+                  </div>
                 </div>
               </div>
             </div>

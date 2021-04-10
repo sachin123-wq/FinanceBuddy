@@ -13,7 +13,7 @@ function DemoPage() {
   }, []);
 
   return postState.postLoading ? (
-    <div>loading...</div>
+    <div className="loading">Loading...</div>
   ) : (
     <Posts data={postState.posts} />
   );
