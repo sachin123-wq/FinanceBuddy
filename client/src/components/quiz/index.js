@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import { getQuizDetails, submitQuizResponse } from '../../actions/quizActions';
 import Question from './question';
 import { Button } from '../../common/button';
@@ -10,6 +10,7 @@ import './index.scss';
 const Quiz = () => {
 
     const { quizId } = useParams();
+    const history = useHistory();
     const dispatch = useDispatch();
     const quizState = useSelector(state => state.quiz);
 
@@ -27,6 +28,11 @@ const Quiz = () => {
         }
         const {score, error} = await submitQuizResponse(quizId, response, dispatch);
         window.alert(error ? error : `You scored ${score} out of ${quizDetails.total_score}`);
+
+        if(!error) {
+            console.log('go back');
+            history.goBack();
+        }
     }
 
     return (

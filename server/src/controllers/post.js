@@ -23,7 +23,7 @@ exports.getPost = async (req, res) => {
 };
 
 exports.createPost = async (req, res) => {
-  const { title, content, domain, words_count = 0 } = req.body;
+  const { title, content, domain, quiz } = req.body;
   const imageFile = req.files.image;
 
   const imageUrl = await uploadSingleFile(imageFile, 'jpg');
@@ -32,12 +32,13 @@ exports.createPost = async (req, res) => {
     title,
     content,
     domain,
-    words_count,
+    words_count: content.length,
     user: req.profile._id,
-    imageUrl
+    quiz,
+    image: imageUrl
   });
-  const savedPost = await post.save();
 
+  const savedPost = await post.save();
   res.send(savedPost);
 };
 

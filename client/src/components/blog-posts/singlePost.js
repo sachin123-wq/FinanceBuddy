@@ -14,10 +14,11 @@ const SinglePost = (props) => {
         <div className="col-md-12 col-lg-12">
           <article className="post vt-post">
             <div className="row">
-              <div className="col-xs-12 col-sm-5 col-md-5 col-lg-4">
+              <div className="image-container col-xs-12 col-sm-5 col-md-5 col-lg-4">
                 <div className="post-type post-img">
                   <span href="#">
                     <img
+                      style={{maxWidth: "100%", maxHeight: "100%"}}
                       src={
                         post.image ||
                         'https://bootdey.com/img/Content/avatar/avatar1.png'
@@ -41,7 +42,7 @@ const SinglePost = (props) => {
                 </div>
               </div>
               <div className="text-container col-xs-12 col-sm-7 col-md-7 col-lg-8">
-                <div className="caption">
+                <div className="caption" >
                   <h3 className="md-heading">
                     <span style={{ color: '#5d62b5', fontWeight: "bold" }}>{post.title}</span>
                   </h3>
