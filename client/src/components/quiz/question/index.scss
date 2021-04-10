@@ -1,0 +1,30 @@
+
+.question-container {
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+
+    .description {
+        border-radius: 4px 4px 0 0;
+        font-size: 18px;
+        line-height: 2em;
+        font-weight: bold;
+    }
+
+    .options-container {
+        margin-top: 10px;
+        padding-left: 5px;
+
+        .option {
+            cursor: pointer;
+            label {
+                padding-left: 5px;
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.151);
+    }
+}

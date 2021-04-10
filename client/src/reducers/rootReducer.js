@@ -8,6 +8,7 @@ import loginFormReducer from './loginFormReducer';
 import userReducer from './userReducer';
 import courseReducer from './courseReducer';
 import domainReducer from './domainReducer'
+import quizReducer from './quizReducer';
 
 export default combineReducers({
     global: globalReducer,
@@ -18,6 +19,6 @@ export default combineReducers({
     auth: authReducer,
     user: userReducer,
     course: courseReducer,
-    domain: domainReducer
+    domain: domainReducer,
+    quiz: quizReducer
 })
-

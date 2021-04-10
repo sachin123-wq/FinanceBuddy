@@ -3,7 +3,7 @@ import { get, post } from "../helpers/callAPI";
 export default class Api {
 
     static async getQuizDetail(quizId) {
-        const uri = `${__API_BASE_ADDRESS__}/api/quiz/${quizId}}`;
+        const uri = `${__API_BASE_ADDRESS__}/api/quiz/${quizId}`;
         try {
             const res = await get(uri, true);
             return res.data;

@@ -10,6 +10,8 @@ import DemoPage from '../components/blog-posts';
 import UserProfile from '../components/profile';
 import Domain from '../components/domain';
 import Course from '../components/course';
+import Quiz from '../components/quiz';
+import PageNotFound from '../components/error/page-not-found';
 
 export default class Routes extends Component {
   render() {
@@ -25,6 +27,8 @@ export default class Routes extends Component {
                 <Route path="/user_profile" component={UserProfile} exact />
                 <Route path="/domain" component={Domain} exact />
                 <Route path="/course" component={Course} exact />
+                <Route path="/quiz/:quizId" component={Quiz} exact />
+                <Route component={PageNotFound} />
               </Switch>
             </div>
           </BrowserRouter>
